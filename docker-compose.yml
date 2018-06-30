@@ -1,0 +1,25 @@
+version: '3.1'
+services:
+  alive-checker:
+    restart: always
+    build: alive-checker
+    ports:
+      - 3000:3000
+    links:
+      - parity:node
+    depends_on:
+      - parity
+  parity:
+    image: "parity/parity"
+    command: --chain ropsten --warp --port 30303 --jsonrpc-port 8544 --jsonrpc-interface all --no-ui --no-ws --no-dapps --jsonrpc-apis safe --max-peers 60 --jsonrpc-cors all
+    ports:
+      - 8544:8544
+  nginx:
+    image: "nginx"
+    links:
+      - parity:node
+      - alive-checker:checker
+    ports:
+      - 8545:8545
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
