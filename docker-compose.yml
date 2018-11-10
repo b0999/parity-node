@@ -12,7 +12,7 @@ services:
   parity:
     image: "parity/parity"
     restart: always
-    command: --chain ropsten --tracing on --warp --port 30303 --jsonrpc-port 8544 --jsonrpc-interface all --no-ui --no-ws --no-dapps --jsonrpc-apis safe --max-peers 60 --jsonrpc-cors all
+    command: --tracing on --warp --port 30303 --jsonrpc-port 8544 --jsonrpc-interface all --no-ui --no-ws --no-dapps --jsonrpc-apis safe --max-peers 60 --jsonrpc-cors all
     ports:
       - 8544:8544
   nginx:
