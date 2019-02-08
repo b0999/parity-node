@@ -34,12 +34,11 @@ services:
     depends_on:
       - parity
     environment:
-      - NODE_ENV="production"
-      - RPC_HOST="node"
-      - RPC_PORT="8544"
-      - LISTENING_PORT="30303"
+      - NODE_ENV=production
+      - RPC_HOST=node
+      - RPC_PORT=8544
+      - LISTENING_PORT=30303
       - INSTANCE_NAME=${NAME}
-      - CONTACT_DETAILS=""
-      - WS_SERVER=${WP_SERVER}
-      - WS_SECRET=${WP_SECRET}
-      - VERBOSITY="2"
+      - WS_SERVER=${WS_SERVER}
+      - WS_SECRET=${WS_SECRET}
+      - VERBOSITY=2
