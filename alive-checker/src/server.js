@@ -5,7 +5,7 @@ const port = 3000
 const web3port = 8544
 
 const web3 = new Web3(new Web3.providers.HttpProvider(`http://node:` + web3port));
-const maxDelta = 60 * 10;
+const maxDelta = 60 * 2 + 30;
 
 console.log('Connecter to node', web3.isConnected());
 
