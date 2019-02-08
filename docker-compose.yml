@@ -26,3 +26,19 @@ services:
       - 8545:8545
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+  reporter:
+    image: "ethereumex/eth-net-intelligence-api"
+    restart: always
+    links:
+      - parity:node
+    depends_on:
+      - parity
+    environment:
+      - NODE_ENV=production
+      - RPC_HOST=node
+      - RPC_PORT=8544
+      - LISTENING_PORT=30303
+      - INSTANCE_NAME=${NAME}
+      - WS_SERVER=${WS_SERVER}
+      - WS_SECRET=${WS_SECRET}
+      - VERBOSITY=2
