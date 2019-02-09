@@ -12,7 +12,7 @@ services:
   parity:
     image: "parity/parity:stable"
     restart: always
-    command: --chain ropsten --tracing on --warp --port 30303 --jsonrpc-port 8544 --jsonrpc-interface all --no-dapps --jsonrpc-apis safe,-personal,-parity --cache-size 4096 --jsonrpc-threads 32 --jsonrpc-server-threads 32 --tx-queue-size 131072 --tx-queue-mem-limit 0 --scale-verifiers --jsonrpc-cors all --max-peers 120 --min-peers 60 --no-ws --no-ipc --whisper
+    command: --chain ropsten --tracing on --warp --port 30303 --jsonrpc-port 8544 --jsonrpc-interface all --no-dapps --jsonrpc-apis safe,-personal,-parity --cache-size 2048 --jsonrpc-threads 32 --jsonrpc-server-threads 32 --tx-queue-size 20107 --tx-queue-mem-limit 0 --scale-verifiers --jsonrpc-cors all --max-peers 120 --min-peers 60 --no-ws --no-ipc --whisper
     ports:
       - 8544:8544
       - 30303:30303
